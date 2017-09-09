@@ -37,9 +37,13 @@ public class DemoController {
     @RequestMapping("enum_demo")
     public ModelAndView enumDemo() {
         ModelAndView mv = new ModelAndView("enum_demo");
-        mv.addObject("type1", ProductTypeEnum.ANTIBIOTIC);
-        mv.addObject("type2", ProductTypeEnum.CARDIOVASCULAR);
-        mv.addObject("type3", ProductTypeEnum.DIGESTIVE);
+        ProductModel p1 = new ProductModel("1", "头孢氨卡胶囊", new Date(new Date().getTime()));
+        p1.setType(ProductTypeEnum.ANTIBIOTIC);
+        ProductModel p2 = new ProductModel("2", "速效救心丸", new Date(new Date().getTime() - 1000 * 60 * 60 * 25));
+        p2.setType(ProductTypeEnum.CARDIOVASCULAR);
+        ProductModel p3 = new ProductModel("3", "健胃消食片", new Date(new Date().getTime() - 1000 * 60 * 60 * 49));
+        p3.setType(ProductTypeEnum.DIGESTIVE);
+        mv.addObject("productList", Arrays.asList(p1, p2, p3));
         return mv;
     }
 

@@ -14,6 +14,7 @@
         <td>产品名称</td>
         <td>送审时间</td>
         <td>审核预警</td>
+        <td>审核预警</td>
     </tr>
     <#list productList as product>
     <tr>
@@ -21,6 +22,19 @@
         <td>${product.name}</td>
         <td>${product.auditDate?datetime}</td>
         <td>${auditWarningMethod(product.auditDate)}</td>
+        <td>
+            <#assign today = .now?string("yyyy-MM-dd")?date("yyyy-MM-dd")?long>
+            <#assign auditDay = product.auditDate?string("yyyy-MM-dd")?date("yyyy-MM-dd")?long>
+            <#assign intervalDay = (today - auditDay) / (1000 * 60 * 60 * 24)>
+            <#if intervalDay < 1>
+            <#elseif intervalDay = 1>
+                送审已经一天
+            <#elseif intervalDay = 2>
+                送审已经两天
+            <#else>
+                送审已经两天以上
+            </#if>
+        </td>
     </tr>
     </#list>
 </table>

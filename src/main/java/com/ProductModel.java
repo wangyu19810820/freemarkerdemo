@@ -12,7 +12,7 @@ public class ProductModel {
     private String id;
     private String name;
     private Date auditDate;
-    private ProductTypeEnum typeEnum;
+    private ProductTypeEnum type;
 
     public ProductModel(String id, String name, Date auditDate) {
         this.id = id;
@@ -44,12 +44,12 @@ public class ProductModel {
         this.auditDate = auditDate;
     }
 
-    public ProductTypeEnum getTypeEnum() {
-        return typeEnum;
+    public ProductTypeEnum getType() {
+        return type;
     }
 
-    public void setTypeEnum(ProductTypeEnum typeEnum) {
-        this.typeEnum = typeEnum;
+    public void setType(ProductTypeEnum type) {
+        this.type = type;
     }
 
     @Override
@@ -58,7 +58,7 @@ public class ProductModel {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", auditDate=" + auditDate +
-                ", typeEnum=" + typeEnum +
+                ", type=" + type +
                 '}';
     }
 }

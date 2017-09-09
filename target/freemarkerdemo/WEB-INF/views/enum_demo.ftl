@@ -8,6 +8,20 @@
     <title>Document</title>
 </head>
 <body>
-    ${type1},${type2},${type3}
+<table border="1">
+    <tr>
+        <td>产品编号</td>
+        <td>产品名称</td>
+        <td>类别</td>
+    </tr>
+<#list productList as product>
+    <tr>
+        <td>${product.id}</td>
+        <td>${product.name}</td>
+        <td>${product.type}</td>
+        <#-- <@dicDisplay type="productType" value="product.type"> -->
+    </tr>
+</#list>
+</table>
 </body>
 </html>
