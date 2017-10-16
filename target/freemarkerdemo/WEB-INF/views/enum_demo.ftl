@@ -19,7 +19,10 @@
         <td>${product.id}</td>
         <td>${product.name}</td>
         <td>${product.type}</td>
-        <#-- <@dicDisplay type="productType" value="product.type"> -->
+        <#-- product.type值是一个枚举，应用对象转换技术，直接转换成期望的值，此处是String -->
+        <#-- 类似的写法在其他项目中如下实现： -->
+        <#-- 药品公版<@dicDisplay type="productType" value="product.type"> -->
+        <#-- 耗材内控<#if>...<#elseif>...<#else>...</#if> -->
     </tr>
 </#list>
 </table>
